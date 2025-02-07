@@ -38,7 +38,7 @@ function ListComp() {
     const moveBetweenCustomLists = (item, fromIndex, toIndex) => {
         setCustomLists(prev => {
             const updatedLists = [...prev];
-            updatedLists[fromIndex] = updatedLists[fromIndex].filter(i => i.id !== item.id);
+            updatedLists[fromIndex]  = updatedLists[fromIndex].filter(i => i.id !== item.id);
 
             if (!updatedLists[toIndex].some(i => i.id === item.id)) {
                 updatedLists[toIndex] = [...updatedLists[toIndex], { ...item }];
