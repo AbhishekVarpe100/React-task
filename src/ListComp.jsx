@@ -27,7 +27,6 @@ function ListComp() {
         setCustomLists(prev => {
             const updatedLists = [...prev];
 
-            
             if (!updatedLists[targetListIndex].some(i => i.id === item.id)) {
                 updatedLists[targetListIndex] = [...updatedLists[targetListIndex], { ...item }];
             }
@@ -38,7 +37,7 @@ function ListComp() {
     const moveBetweenCustomLists = (item, fromIndex, toIndex) => {
         setCustomLists(prev => {
             const updatedLists = [...prev];
-            updatedLists[fromIndex]  = updatedLists[fromIndex].filter(i => i.id !== item.id);
+            updatedLists[fromIndex] = updatedLists[fromIndex].filter(i => i.id !== item.id);
 
             if (!updatedLists[toIndex].some(i => i.id === item.id)) {
                 updatedLists[toIndex] = [...updatedLists[toIndex], { ...item }];
@@ -56,14 +55,14 @@ function ListComp() {
     };
 
     return (
-        <div className="p-6 max-w-7xl mx-auto min-h-screen bg-blue-100">
-            <div className="text-center mb-6">
+        <div className="p-6 max-w-7xl mx-auto min-h-screen bg-blue-100 relative">
+            <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-10">
                 <button onClick={createNewList} className="px-6 py-3 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 font-bold focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
                     Create New List
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20">
                 <div className="p-4 border rounded bg-white shadow-md h-80 overflow-y-auto">
                     <h2 className="text-center border-b pb-2 text-blue-700 font-bold">List 1</h2>
                     {list1.map(item => (
